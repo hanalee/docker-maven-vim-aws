@@ -1,13 +1,5 @@
 FROM openjdk:7-jdk
 
-# Update packages
-RUN apt-get update
-
-# Install python
-RUN apt-get install -y -q python2.7-dev zip
-
-# Install latest version of pip
-RUN curl -O https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 
 RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && curl -fsSL http://apache.osuosl.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz \
