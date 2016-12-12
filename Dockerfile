@@ -12,17 +12,6 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 # Install AWS CLI
 RUN pip install awscli awsebcli
 
-# Install vim
-RUN git clone https://github.com/vim/vim.git --depth 1 \
- && cd vim \
- && ./configure --enable-pythoninterp --with-python-config-dir=$(python2.7-config --configdir) \
- && make \
- && make install \
- && cp /usr/local/bin/vim /usr/local/bin/vi \
- && rm -rf ~/vim
-ARG MAVEN_VERSION=3.3.9
-ARG USER_HOME_DIR="/root"
-
 RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && curl -fsSL http://apache.osuosl.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz \
     | tar -xzC /usr/share/maven --strip-components=1 \
