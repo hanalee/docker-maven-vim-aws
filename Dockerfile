@@ -1,4 +1,4 @@
-FROM openjdk:7-jdk
+FROM openjdk:8-jdk
 
 # Update packages
 RUN apt-get update
